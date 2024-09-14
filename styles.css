@@ -1,0 +1,128 @@
+/* Body styling to prevent horizontal scroll */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Ensures everything is centered */
+    height: 100vh;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    overflow-y: hidden;
+    align-items: center;
+}
+header {
+    width: 80%;
+
+}
+h1 {
+    font-size: 4rem;
+    color: #ff6347;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 2s forwards 2s; /* Delayed fade-in for h1 */
+    text-align: center; /* Ensure text is centered */
+}
+
+p {
+    font-size: 1.5rem;
+    color: #555;
+    opacity: 0;
+    margin-top: 20px;
+    text-align: center; /* Ensure text is centered */
+}
+
+.fade-in-delay {
+    animation: fadeIn 2s 4s forwards; /* Longer delay for second paragraph */
+}
+
+.please-animate {
+    color: #ff6347;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 2s 6s forwards, pulse 1.5s infinite alternate 6s; /* Pulse immediately after fading in */
+    margin-top: 20px;
+    text-align: center; /* Ensure text is centered */
+}
+
+.button-section {
+    margin-top: 20px; /* Reduced margin to move buttons higher */
+    opacity: 0;
+    animation: fadeIn 2s 10s forwards;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures buttons wrap on small screens */
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.yes-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.no-button {
+    margin-top: 70px;
+    background-color: #dc3545;
+    color: white;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+        color: #ff4500;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+
+    .button-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .no-button {
+        margin-top: 120px;
+    }
+}
+#special-image {
+    width: ;
+}

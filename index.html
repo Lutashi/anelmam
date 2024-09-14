@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Анель</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script> <!-- Confetti library -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #ff6347;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s; /* Delayed fade-in for h1 */
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #555;
+            opacity: 0;
+            margin-top: 20px;
+        }
+
+        .button-section {
+            margin-top: 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center-align the buttons */
+            gap: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .yes-button {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .no-button {
+            background-color: #dc3545;
+            color: white;
+            position: relative; /* Initially positioned under Yes button */
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInImage {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Initially hide the image */
+        #special-image {
+            display: none;
+            opacity: 0;
+            max-width: 300px;
+            margin-top: 20px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1.2rem;
+            }
+
+            .button-section {
+                gap: 10px;
+            }
+
+            .no-button {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="fade-in">Анель</h1>
+        <p class="fade-in-delay">го после школы погуляем</p>
+        <p class="please-animate">please</p>
+    </header>
+
+    <section class="button-section">
+        <button class="button yes-button" onclick="launchConfettiAndShowImage()">Да, я согласна!!!</button>
+        <button class="button no-button" onclick="moveNoButton()">Нет, пошел нахуй</button>
+    </section>
+
+    <!-- The image to be faded in -->
+    <div >
+        <img id="special-image" src="https://ik.imagekit.io/mecsrweb/images/photos/main/fb8bb49abff881f23ad87c1223e90a5a.jpg" alt="Asia Mall Bishkek">
+    </div>
+
+    <script>
+        // Function to trigger confetti and fade in the image
+        function launchConfettiAndShowImage() {
+            confetti({
+                particleCount: 50,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(function() {
+                var image = document.getElementById('special-image');
+                image.style.display = 'block'; // Show the image
+                image.style.animation = 'fadeInImage 2s forwards'; // Fade in the image
+            }, 1000); // Start after 1 second delay
+        }
+
+        // Move the "No" button to a random position on the screen
+        function moveNoButton() {
+            const noButton = document.querySelector('.no-button');
+            noButton.style.position = 'absolute'; // Change position to absolute for movement
+            const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+    </script>
+
+</body>
+</html>
